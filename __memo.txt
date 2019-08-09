@@ -1,3 +1,4 @@
+[999999]常時上で確認したいメモ
 Lib及びimportモジュール_memo
 SystemTester.py     #各サンプルのテストモジュールの元になっている
 getData.py
@@ -25,3 +26,6 @@ _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
 
+
+[190809]※超基本Github
+https://qiita.com/bakainubau/items/4613dda50a5fa302d212
