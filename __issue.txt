@@ -1,0 +1,11 @@
+
+[20190804]
+・ターミナルにはconda回りのコマンドで失敗表記　おそらくAnacondaでVSCがインスコされたから
+PS C:\Users\gauu01\Dropbox\02_W\_TestProject\Code_Package\PSB> conda activate base
+conda : 用語 'conda' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前として認識されません。名前が正しく記述されていることを確認し、パスが含まれている場合はそのパスが正しいことを確認して
+から、再試行してください。
+発生場所 行:1 文字:1
++ conda activate base
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (conda:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException

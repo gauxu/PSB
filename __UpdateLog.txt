@@ -1,0 +1,3 @@
+
+[20190804]
+#内部スコープでglobalで宣言されてたexitPriceがglobal未定義警告出現、外部でコメントされていた「#exitPrice = list()」から#を削除。

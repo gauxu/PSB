@@ -1,0 +1,22 @@
+Start Trade Drawdown Analysis Of :      DualMoving : Max. ClsTrd Draw Down      48404
+-------------------------------------
+Probability of DD <     2420 is 0.085
+Probability of DD <     4840 is 0.087
+Probability of DD <     7261 is 0.161
+Probability of DD <     9683 is 0.172
+Probability of DD <    12107 is 0.201
+Probability of DD <    14531 is 0.218
+Probability of DD <    16956 is 0.218
+Probability of DD <    19382 is 0.229
+Probability of DD <    21809 is 0.246
+Probability of DD <    24238 is 0.271
+Probability of DD <    26667 is 0.290
+Probability of DD <    29097 is 0.430
+Probability of DD <    31528 is 0.456
+Probability of DD <    33960 is 0.464
+Probability of DD <    36394 is 0.540
+Probability of DD <    38828 is 0.642
+Probability of DD <    41263 is 0.646
+Probability of DD <    43699 is 0.667
+Probability of DD <    46136 is 0.697
+Probability of DD <    48575 is 1.000

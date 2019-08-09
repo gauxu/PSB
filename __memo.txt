@@ -1,0 +1,27 @@
+Lib及びimportモジュール_memo
+SystemTester.py     #各サンプルのテストモジュールの元になっている
+getData.py
+dataLists.py        #myDate,myTime,myOpen,myHigh,myLow,myClose
+tradeClass.py       #tradeInfo
+equityDataClass.py  #equityClass
+trade.py            #trade
+systemMarket.py     #systemMarketClass
+portfolio.py        #portfolioClass
+systemAnalytics.py  #calcSystemResults
+
+marketDataClass.py
+tradeModule.py
+
+
+functions, classes, variabelsメモ
+masterDateList
+
+・デバッグコンソールには処理の途中経過と_Compositeの内容が出力
+
+・出力ファイルmemo
+_Composite  #全Mrkt毎結果と合算月間リターン推移
+_Summary    #銘柄ごとの成績と月間推移
+_Trades     #各銘柄ごとのトレード記録
+_StrtTrdDD
+_MonteCarlo #モンテカルロシミュレーション結果
+
