@@ -26,6 +26,8 @@ _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
 
+※GithubでPushできなくなったら、変更箇所だけ退避しCloneし直して退避分上書き後再Push※
+git clone git@github.com:gauxu/PSB.git
 
 [190809]Git関連資料
 ・サルでもわかるGit入門
