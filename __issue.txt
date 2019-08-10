@@ -1,4 +1,7 @@
 
+[20190810]Gitに出力データまでアップロードされているが見づらい
+出力Dirを子Dirに分ける or Pushやコミットリストから排除(Addで追加しない？)
+
 [20190804]
 ・ターミナルにはconda回りのコマンドで失敗表記　おそらくAnacondaでVSCがインスコされたから
 PS C:\Users\gauu01\Dropbox\02_W\_TestProject\Code_Package\PSB> conda activate base
