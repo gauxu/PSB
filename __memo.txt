@@ -27,6 +27,8 @@ _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
 
 [ルール・手順]
+※迷ったら状態確認 git status
+
 ※リポジトリからコピー
 ・cd ~/WorkingDir
 ・git clone git@github:gauxu/PSB
@@ -37,8 +39,12 @@ _MonteCarlo #モンテカルロシミュレーション結果
 ・git commit -m "[yymmdd]@user "filename.*"
 ・git remote add master/origin https://github.com/#username#/#directry#
 ・git push
-・git status
-Pushできたか確認
+・git status    #Pushできたか確認
+
+※ファイル更新
+・git commit -m "[yymmdd]@user "filename.*"
+・git push
+
 
 [注意]
 ※ログファイルなど大量に吐き出されるファイルはフォルダ分け必須
