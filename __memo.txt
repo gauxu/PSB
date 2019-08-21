@@ -13,9 +13,9 @@ systemAnalytics.py  #calcSystemResults
 marketDataClass.py
 tradeModule.py
 
-
-functions, classes, variabelsメモ
+dataArray or List, keywords and identifier, indClasses and functions
 masterDateList
+※NOTE:その他予約語等 → __ReserveWords.txt  …Ref
 
 ・デバッグコンソールには処理の途中経過と_Compositeの内容が出力
 
@@ -26,7 +26,21 @@ _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
 
-[ルール]
+[ルール・手順]
+※リポジトリからコピー
+・cd ~/WorkingDir
+・git clone git@github:gauxu/PSB
+・cd /cloneDir
+
+※ファイル追加
+・git add "filename.*"
+・git commit -m "[yymmdd]@user "filename.*"
+・git remote add master/origin https://github.com/#username#/#directry#
+・git push
+・git status
+Pushできたか確認
+
+[注意]
 ※ログファイルなど大量に吐き出されるファイルはフォルダ分け必須
 間違えてファイルをPushしてしまった場合ブラウザベースで個別削除大変
 

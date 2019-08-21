@@ -1,5 +1,13 @@
-[20190809]
+[20190821]@gauxu
+PSBリモートリポジトリに__ReservedWords.txt追加
+__memoにルール手順に変更　具体的な更新手順記述
+リモートリポジトリの出力結果ファイルを完全削除
+
+[20190810]@gauxu
+PSBリモートリポジトリに__issue.txt追加
+
+[20190809]@gauxu
 GithubにOrgnize作成し、GauxuアカウントでPSBプロジェクトをコミットした。
 
-[20190804]
+[20190804]@gauxu
 #内部スコープでglobalで宣言されてたexitPriceがglobal未定義警告出現、外部でコメントされていた「#exitPrice = list()」から#を削除。
