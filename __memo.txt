@@ -25,7 +25,6 @@ _Summary    #銘柄ごとの成績と月間推移
 _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
-
 [ルール・手順]
 ※迷ったら状態確認 git status
 
