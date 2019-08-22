@@ -35,8 +35,8 @@ _MonteCarlo #モンテカルロシミュレーション結果
 ・cd /cloneDir
 
 ※ファイル追加
-・git add "filename.*"
-・git commit -m "[yymmdd]@user "filename.*"
+・git add filename.*
+・git commit -m "[yymmdd]@user_description" filename.*
 ・git remote add master/origin https://github.com/#username#/#directry#
 ・git push
 ・git status    #Pushできたか確認
