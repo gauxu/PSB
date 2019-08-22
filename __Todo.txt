@@ -1,2 +1,12 @@
-[Todo]
-常に確認PSB_LM.xmind
+#Todo# Ended elements moved at  __UpdateLog.txt and insert upper at docment.
+[190822]毎日確認/Rep PSB_LM.xmind
+[190822]1日1回必ずコミット
+
+#Plan#
+
+#AnalyzeIdea#
+[190822]
+高値(2日以上安値方向へ更新無)から3Atr&10%の下落で買いセットアップ
+Entry:翌日全日安値より安く寄付いたら成行買い　そうでなければ全日安値指値&不成引買
+Exit:2ATR利益が出たら引成決済　エントリーした次の日に利益でなければ引成決済
+Mrkt:75MAより上にある成長株式銘柄

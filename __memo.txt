@@ -39,6 +39,7 @@ _MonteCarlo #モンテカルロシミュレーション結果
 ・git remote add master/origin https://github.com/#username#/#directry#
 ・git push
 ・git status    #Pushできたか確認
+＃VSCのソース管理を使うとファイル追加やコミットメントがお手軽。最後にPushすればおｋ
 
 ※ファイル更新
 ・git commit -m "[yymmdd]@user "filename.*"
