@@ -1,4 +1,8 @@
 #Done#
+[190828]@gauxu Anaconda削除
+GAでOneMax問題を解く環境がAnacondaのパッケージ入ってないから
+今後はenv\Scripts\activate.batとenv\Scripts\deactivate.batを利用
+
 [190824]@gauxu
 米国自動車株比較の良いサンプルコードがあったので
 それを参考にViewRsltMod内にJupyterプロジェクト作成

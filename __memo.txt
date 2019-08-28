@@ -26,6 +26,9 @@ _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD
 _MonteCarlo #モンテカルロシミュレーション結果
 [ルール・手順]
+※Anacondaを使わないenv\Scripts\activate.batでプロジェクト毎の仮想環境にPipでインスコ
+pip listでパッケージの状態を確認できる。
+
 ※迷ったら状態確認 git status
 
 ※リポジトリからコピー
@@ -71,3 +74,6 @@ https://seleck.cc/630
 
 ・使いこなせると便利なGitコマンド一覧
 https://www.wakuwakubank.com/posts/262-git-command/
+
+・Git初心者に捧ぐ！Gitの「これなんで？」を解説します。
+https://kray.jp/blog/git-why-explanation/
