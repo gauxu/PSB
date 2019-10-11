@@ -21,7 +21,7 @@ from portfolio import portfolioClass
 from indicators import highest,lowest,rsiClass,stochClass,sAverage,bollingerBands
 from indicators import xAverage
 from systemAnalytics import calcSystemResults
-from tkinter.filedialog import askopenfilenames
+
 #--------------------------------------------------------------------------------
   #End of Import Section
 #--------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ alist, blist, clist, dlist, elist = ([] for i in range(5))
 marketPosition,listOfTrades,trueRanges,ranges = ([] for i in range(4))
 dataClassList,systemMarketList,equityDataList = ([] for i in range(3))
 entryPrice,fileList,entryPrice,entryQuant,exitQuant = ([] for i in range(5))
-#exitPrice = list()
+exitPrice = list()
 currentPrice = 0
 totComms = 0
 barsSinceEntry = 0
@@ -166,10 +166,10 @@ for marketCnt in range(0,numMarkets):
         shortLevel = roundToNearestTick(shortLevel,-1,myMinMove)
 #        print(tempDate," avg ",exitLevel," ",buyLevel - exitLevel)
         atrVal = sAverage(trueRanges,10,i,0)
-        rsiVal = rsiStudy.calcRsi(myClose,10,i,0)
-        myXavg = xAverage(myClose,myXavg,19,i,0)
+#        rsiVal = rsiStudy.calcRsi(myClose,10,i,0)
+        myXavg = xAverage(myClose,myXavg,150,i,0)
         stopAmt = 2000/myBPV
-        print(myDate[i]," myXavg ",myXavg," close ",myClose[i])
+#        print(myDate[i]," myXavg ",myXavg," close ",myClose[i])
 #        fastKVal,fastDVal,slowDVal = stochStudy.calcStochastic(3,9,9,myHigh,myLow,myClose,i,1)
 
 #        if (mp > 0 and maxPositionL < 3) : maxPositionL = mp
@@ -305,6 +305,7 @@ portfolio.setPortfolioInfo("PortfolioTest",systemMarketList)
 
 calcSystemResults(systemMarketList)
 
+portfolio.outputGrades()
 
 
 
