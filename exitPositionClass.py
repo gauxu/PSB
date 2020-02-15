@@ -20,14 +20,14 @@ class exitPosition(object):
         if self.mp < 0:
             trades = tradeInfo('liqShort',self.myExitDate,self.tempName,self.myExitPrice,self.myCurShares,0)
             profit = trades.calcTradeProfit('liqShort',self.mp,self.entryPrice,self.myExitPrice,self.entryQuant,self.myCurShares) * self.myBPV
-            profit = profit - myCurShares *commission
+            profit = profit - self.myCurShares *self.commission
             trades.tradeProfit = profit
             cumuProfit += profit
             trades.cumuProfit = cumuProfit
         if self.mp > 0:
-            trades = tradeInfo('liqLong',myExitDate,tempName,myExitPrice,myCurShares,0)
-            profit = trades.calcTradeProfit('liqLong',mp,entryPrice,myExitPrice,entryQuant,myCurShares) * myBPV
-            profit = profit - myCurShares * commission 
+            trades = tradeInfo('liqLong',myExitDate,tempName,myExitPrice,self.myCurShares,0)
+            profit = trades.calcTradeProfit('liqLong',mp,entryPrice,myExitPrice,entryQuant,self.myCurShares) * myBPV
+            profit = profit - self.myCurShares * self.commission 
             trades.tradeProfit = profit
             cumuProfit += profit
             trades.cumuProfit = cumuProfit

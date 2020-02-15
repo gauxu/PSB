@@ -142,6 +142,21 @@ class portfolioClass(object):
             print('%8d %10.0f %10.0f ' % (monthList[j],monthEquity[j],combinedEquity[idx]))
             target1.write('%8d %10.0f %10.0f\n' % (monthList[j],monthEquity[j],combinedEquity[idx]))
         target1.close()
+    
+    def outputGrades(self):
+        print("systemMarkets=",self.systemMarkets[0].systemName)
+#        print("systemMarkets=",self.systemMarkets)
+#        print("portEquityDate=",self.portEquityDate)
+#        print("portclsTrdEquity=",self.portclsTrdEquity)
+#        print("portDailyEquityVal=",self.portDailyEquityVal)
+#        print("portEquityDate=",self.portEquityDate)
+        print("portEquityVal=" ,self.portEquityVal[-1])
+        print("portMaxDD=",self.portMaxDD)
+        print("portMinEquity=",self.portMinEquity)
+        print("portPeakEquity=",self.portPeakEquity)
+        return self.portEquityVal[-1],self.portMaxDD
+
+
 def removeDuplicates(li):
     my_set = set()
     res = []
@@ -163,5 +178,3 @@ def createMonthList(li):
             if i == len(li)-1:
                 myMonthList.append(li[i])
     return myMonthList
-
-
