@@ -2,9 +2,77 @@
 https://plantuml.com/ja/class-diagram
 '/
 @startuml
-systemTesterClass <|-- Class02
-DCL *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 -- Class10
+class systemTesterClass(object継承){
+    SysName = "Noname"
+    def __init__(self):
+        self.tradeName : string
+        self.numShares : int
+        self.cumuProfit : int
+
+        self.marketPosition : list[グローバル変数mpは一時保持用]
+        self.listOfTrades : list
+        self.trueRanges : list
+        self.ranges : list
+
+        self.entryPrice : list
+        self.entryQuant : list
+        self.exitQuant : list
+        self.exitPrice : list
+        self.currentPrice = 0
+        self.totComms = 0
+        self.barsSinceEntry = 0
+        self.numRuns = 0
+
+        self.myBPV = 0
+        self.myComName
+        self.myMinMove
+        self.allowPyr = 0
+        self.curShares = 0
+
+        self.commission = 100 # deducted on a round turn basis
+        self.numBarsToGoBack = 1000 # number of bars from the end of data
+        self.rampUp = 100 # need this minimum of bars to calculate indicators 最低必要バー数
+
+}
+class marketDataClass(object継承){
+    {field}{static} DCL : list = getDate() : dataClassList
+        self.symbol : string
+        self.minMove : int
+        self.bigPtVal : int
+        self.seed : int
+        self.date : list
+        self.open : list
+        self.high : list
+        self.low : list
+        self.close : list
+        self.volume : list
+        self.opInt : list
+        self.dataPoints : int
+    setDataAttributes(self,symbol,bigPtVal,minMove):
+    readData(self,date,open,high,low,close,volume,opInt):
+
+}
+class portfolioClass(object継承){
+        self.portfolioName : string
+        self.systemMarkets : list
+        self.portEquityDate : list
+        self.portEquityVal : list
+        self.portclsTrdEquity : list
+        self.portDailyEquityVal : list
+        self.portPeakEquity = 0
+        self.portMinEquity = 0
+        self.portMaxDD = 0
+        tempEqu = 0
+        cumEqu = 0
+        maxEqu = -999999999
+        minEqu = 999999999
+        maxDD = 0
+    
+    def setPortfolioInfo(self,name,systemMarket):
+}
+portfolioClass "1" o. "n" systemTesterClass : 銘柄ごとのテスト結果統合・集計 <
+systemTesterClass "1" *-- "n" marketDataClass : 指定マーケットの属性やデータを属する <
+systemTesterClass <|-- object
+marketDataClass <|-- object
+portfolioClass <|-- object
 @enduml

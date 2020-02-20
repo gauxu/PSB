@@ -42,7 +42,7 @@ def getData():
     files = askopenfilenames(filetypes=(('CSV files', '*.csv'),
                                        ('TXT files', '*.txt')),
                                        title='Select Markets To Test- CSV format only!')
-    fileList = root.tk.splitlist(files)
+    fileList = root.tk.splitlist(files)     #NOTE:無意味なコードfilesとfileListは空のとき以外ほぼ同じ
 
     fileListLen = len(fileList)
     for marketCnt in range(0,fileListLen):
@@ -50,10 +50,10 @@ def getData():
         tempStr = tail[0:2]
         commIndex = 0
         foundInDataMaster = 0
-        for i in range(totComms):
+        for i in range(totComms):           #読み込んだマスターデータの中から銘柄情報検索　なければデフォルト設定に
             if tempStr == commName[i]:
                 commIndex = i
-                foundInDataMaster = 1
+                foundInDataMaster = 1       #フラグなので変数名悪い NOTE:IsFoundInDataMasterにすべし
         newDataClass = marketDataClass()
         if foundInDataMaster != 0:
             newDataClass.setDataAttributes(commName[commIndex],bigPtVal[commIndex],minMove[commIndex])
@@ -80,3 +80,11 @@ def getData():
         f.close
     return(dataClassList)
  
+
+#-----------------------------------------------------------------------
+# 単体テスト用
+#-----------------------------------------------------------------------
+if __name__ == "__main__":
+    print("execution from cmd! at ",__name__)
+    getData()
+    print(dataClassList)
