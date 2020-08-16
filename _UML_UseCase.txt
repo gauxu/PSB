@@ -1,8 +1,37 @@
-@startuml
+/'大枠PSBユースケース図'/
+/'
+ユースケース図はシステムの目的、ユースケース＝機能ではない
+詳細ユースケースに関してはユースケース記述も行う
+基本文法参考
+https://plantuml.com/ja/use-case-diagram
+ユースケース図描き方参考
+https://it-koala.com/usecasediagrams-1832
+'/
 
-(First usecase)
-(Another usecase) as (UC2)  
-usecase UC3
-usecase (Last\nusecase) as UC4
+@startuml
+left to right direction
+rectangle PSB{
+usecase UC1 as "運用ポートフォリオの\nモニタリング"
+usecase UC3 as "マルチタイムフレームで\n相場分析検証\n[M1.M15.Y1.Y4]"
+usecase UC5 as "運用ポートフォリオにて\n自動売買執行\n[M1.M15.Y1.Y4]"
+usecase UC6 as "日足生成タイミング考慮した分析\n基本データに日足開始-終了時刻設定"
+
+usecase UC11 as "検証環境にて\nStrategyの検証・改善"
+usecase UC12 as "検証済Strategyによる\n運用ポートフォリオ構築・調整"
+
+usecase UC20 as "検証環境整備"
+usecase UC21 as "日々データ及び記録収集\n日々整合性チェック"
+usecase UC22 as "システムや検証環境の\n改善点抽出・実装"
+}
+
+:User: --> :Manager:
+:User: --> :Main AdminSys:
+:Manager: -- UC1
+:Manager: -- UC11
+:Manager: -- UC12
+:Main AdminSys: -- UC20
+UC20 <.. UC21 : include
+UC20 ..> UC22 : extend
+:API: --- PSB : Brokerと通信
 
 @enduml
