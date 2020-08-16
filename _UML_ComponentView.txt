@@ -1,0 +1,73 @@
+/'
+https://plantuml.com/ja/component-diagram
+'/
+@startuml
+skinparam componentStyle uml2
+
+database Record[
+<b>売買記録</b>
+----
+境界線として
+====
+MasterDate
+DateDate
+....
+スタイルが使えます
+※グローバル変数も同様に考える
+]
+
+database Market[
+<b>マーケット</b>
+====
+MasterDate
+DateDate
+....
+マスタデータ&時間軸別・時系列価格&時系列スワップ
+----
+※グローバル変数も同様に考える
+]
+interface "MarketDataClass" as MDCL
+
+
+note right of [Rule]
+資金管理ルール
+==
+全戦略の運用併せて10%以上のDD厳禁
+基本は2～3%のDDを想定した運用
+end note
+
+
+note right of [OptUnit]
+最適化モジュール
+==
+WFAモジュール
+引数
+目的化関数,解空間,WFCnt,OOSRate,AnlyPrd
+--
+NOTE
+最適化エンジンごとに適したインターフェイス
+コールバック関数で対象を判別させたい
+end note
+
+
+frame "SystemTester" {
+[Portfolio] *- [MoneyManegement]
+[Portfolio] *-- [Strategy] : StrategyList
+[Strategy] -* [MarketData] : MarketList
+[Strategy] *- [Record]
+[MoneyManegement] *-- [Strategy] : StrategyList
+[MoneyManegement] *- [Rule]
+[MarketData] *- MDCL : GetDate\nbyMarketDataClassList
+MDCL <-> Market
+[Strategy] --> [StTrande]
+[Strategy] --> [StDayTrade]
+[MarketData] *-- [StTrande]
+[MarketData] *-- [StDayTrade]
+[StTrande] . [StDayTrade]
+[Indicator] *-- [StTrande]
+[Indicator] *-- [StDayTrade]
+[Indicator] --* [MarketData]
+}
+[OptUnit] --* [OptEngine]
+'[OptUnit] : SystemTesterMethod --*
+@enduml
