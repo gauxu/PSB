@@ -8,3 +8,12 @@ _UML_StateView.png
 _UML_UseCase.png
 _UML_SequenceView.png
 _UML_ComponentView.png
+
+dataMaster.csv
+
+_GA.py
+_OptUnit.py
+_OptWorkForwardAnalysis.py
+_StockDataSample
+_XavgCrossOverOpt.py
+_jupyterTest.py
