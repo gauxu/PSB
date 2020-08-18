@@ -1,7 +1,8 @@
 [999999]常時上で確認したいメモ
+シフト＋エンターで単行実行テスト
 Lib及びimportモジュール_memo
 SystemTester.py     #各サンプルのテストモジュールの元になっている
-getData.py
+getData.py          #株価や基本データを纏めて読み込む→データベースから
 dataLists.py        #myDate,myTime,myOpen,myHigh,myLow,myClose
 tradeClass.py       #tradeInfo
 equityDataClass.py  #equityClass
@@ -13,7 +14,6 @@ systemAnalytics.py  #calcSystemResults
 marketDataClass.py
 tradeModule.py
 
-dataArray or List, keywords and identifier, indClasses and functions
 masterDateList
 ※NOTE:その他予約語等 → __ReserveWords.txt  …Ref
 
@@ -27,27 +27,35 @@ _StrtTrdDD  #トレードを開始してからの任意のすべてに対するMDD調査
 _MonteCarlo #モンテカルロシミュレーション結果
 
 [ルール・手順]
-※Anacondaを使わないenv\Scripts\activate.batでプロジェクト毎の仮想環境にPipでインスコ
+※Anacondaを使わない
+env\Scripts\activate.batでプロジェクト毎の仮想環境にPipでインスコ
 pip listでパッケージの状態を確認できる。
 
 ※迷ったら状態確認 git status
 
 ※リポジトリからコピー
-・cd ~/WorkingDir
-・git clone git@github:gauxu/PSB
-・cd /cloneDir
+cd ~/WorkingDir
+git clone git@github:gauxu/PSB
+cd /cloneDir
 
 ※ファイル追加
-・git add filename.*
-・git commit -m "[yymmdd]@user_description" filename.*
-・git remote add master/origin https://github.com/#username#/#directry#
-・git push
-・git status    #Pushできたか確認
+git add filename.*
+git commit -m "[yymmdd]@user_description" filename.*
+git remote add master/origin https://github.com/#username#/#directry#
+git push
+git status    #Pushできたか確認
 ＃VSCのソース管理を使うとファイル追加やコミットメントがお手軽。最後にPushすればおｋ
 
 ※ファイル更新
 ・git commit -m "[yymmdd]@user "filename.*"
 ・git push
+
+※ファイル削除
+git rm -r filename.*    実ファイルも消えるので先にコピー推奨
+git status              変更(削除ファイル)がステージされているか確認(緑文字)
+git comit -m "[yymmdd]@User:コミットのdescription"
+git status              コミットが出来ているか確認(Commit件数の有無)
+git push                リポジトリのファイルに削除が反映される
 
 ※命名規則等
 クラス関連
