@@ -3,24 +3,82 @@ https://plantuml.com/ja/class-diagram
 http://www.itsenka.com/contents/development/uml/class.html
 '/
 @startuml
-class St{
+interface StrategyIF{
+    ==
+    st : Strategy
+    --
+    TesterRun()
+    Opt = createOpt(GA,WFA) : OptBase ※ポリモーフィズム化
+    run(st, Opt)
 }
-note right of St : 外部変数は共有オブジェクトに\n※グローバルやシングルトンに依存させない
+class Strategy{
+    ◆extend : StrategyIF
+    NOTE:\n外部変数は共有オブジェクトに\n※グローバルやシングルトンに依存させない
+    ==
+    st : Strategy
+    Opt = createOpt(GA,WFA) : OptBase ※ポリモーフィズム化
+    run(st, Opt)
+    --
+    外部変数は共有オブジェクトに\n※グローバルやシングルトンに依存させない
+}
+
+interface OptimizerIF{
+    ◆extend : Aggregate
+    ==
+    ret: rnkRslt:list = [optRslt01, optRslt02,...]
+    　※optRslt=(対応適合度関数rslt:Rslt,param:(optWFCnt:int,optOOSRate:Flort,...etc))
+    exm:
+    ..
+    arg: [ Opt*=GA,OptPrm[]=GaPrm, AnlyzerIF*,Compati*=profit||MaxDD...etc
+    ,(optArg1:Tuple,...,optArgm:Tuple),(detArg1(date:Tuple),...etc) ]
+    exm: GA,optPrm, WFA,optArg[tuple],
+    __
+    -isStressTest :bool = true
+    -stressTestCount:int = 3
+    -stressTestRate:flort = 0.1
+    --
+    CreateOptmizer(Opt*,OptPrm[], CompatiObj=Prof||MaxDD||ret...etc,)
+}
+
+interface AnlyzerIF{
+    ◆extend : Iterator
+    ==
+    ret:
+    exm:
+    ..
+    arg:
+    exm:
+    __
+    TODO:variable
+    --
+    TODO:method
+}
+
+
 class WFO{
-    ◆extend : Rnk
-    strategy : Strategy
+    ◆extend : OptimizerIF
+    ==
+    WFAのパラメータの最適化を行う
+    ※WFOクラスター分析とは\nWFOの運用に際して良い設定値を探すために各設定によるWFAを行い、
+    　設定した適合度関数が良い結果のクラスターを探すこと\n
+    ※1回WFAにおけるWFOをシングルWFO、複数回のWFAにおけるWFOをクラスタWFO
+    __
     strategyPrm : list 引数リストor引数生成関数と引数リスト
     trdmarket:list ->St
     anlymarket:list ->St
     anlyPeriod : tuple ※検証開始-終了期間を年月日指定
-    conpatible : interface[Strategyパターン]\n　適合度関数[純利、最大DD、リターン等]\n入力量に対する集計方法が違うので切替
+    conpatible : interface[Strategyパターン]\n　適合度関数[純利、最大DD、リターン等]\n　入力量に対する集計方法が違うので切替
+    StrTstCnt,StrTstRate:tuple:ストレステスト回数、割合
+    --
     detParam():Param 初期検証パラメータとRslt考慮した次の検証パラメータ決定\n (GA等考慮する場合最適化の順番が流動的に変化するため)
     funcObj.Run(detParam)
 }
-note left of WFO : WFAのパラメータの最適化を行う\n出力例:\nrnkRslt:list = [optRslt01, optRslt02,...]\n ※optRslt=(対応適合度関数rslt:Rslt,param:(optWFCnt:int,optOOSRate:Flort,...etc))\nNOTE:※WFOクラスター分析とは\nWFOの運用に際して良い設定値を探すために各設定によるWFAを行い、\n設定した適合度関数が良い結果のクラスターを探すこと\n1回WFAにおけるWFOをシングルWFO\n複数回のWFAにおけるWFOをクラスタWFO
-note right of WFO : 引数\n[ OptMthd*, FuncObj*,(optArg1:Tuple,...,optArgm:Tuple),\n  (detArg1(date:Tuple),...etc) ]\n入力例:
+
 
 class WFA{
+    WFO設定パラメータ群における1組のWFAを1回実行\n ※WFA1回＝WFCnt回数分Stragegyパラメータの最適化を行う\n出力例:rslt:Rslt
+    引数 最適化変数群optArg11~mnと決定変数群detArg1~kのTuple\n入力例:[ (10,0.2),( (20100101,20191231),...etc ) ]\nNOTE:\n単位入力量における、各インサンプル期間の\nTrd数サンプルは最低30以上欲しい\n入力量4なら合計120Trdサンプルに？
+    --
     WFCnt:int = 10 ※入力量:IOS+OOSのサンプリング回数
     OOSRate:flort = 0.2
     InRslt:Param* = [[begin1,end1,param,rslt],...]各インサンプル検証毎のパラメーターと結果を格納する
@@ -32,116 +90,55 @@ class WFA{
     RunOutTst():outRslt 複数期間における検証結果をリストにして返す
     PutRslt(OutRslt)
 }
-note left of WFA : 1組のWFO設定パラメータ群におけるWFAを1回実行\n ※WFA1回＝WFCnt回数分Stragegyパラメータの最適化を行う\n出力例:\nrslt:Rslt
-note right of WFA : 引数\n最適化変数群optArg11~mnと決定変数群detArg1~kのTuple\n入力例:\n[ (10,0.2),( (20100101,20191231),...etc ) ]\nNOTE:\n単位入力量における、各インサンプル期間の\nTrd数サンプルは最低30以上欲しい\n入力量4なら合計120Trdサンプルに？
-/'note "入力量のそれぞれのインサンプル期間のTrdサンプル数は最低30欲しい\n入力量4なら合計120Trdサンプルに" as N2
-N2 .. WFA'/
+
 
 class Optmizer{
-    ◆extend : Rnk
+    ◆extend : OptimizerIF
+    パラメータの最適化を行う\n戻値\n各Rslt[&Param]を適合度関数順に整理した結果を返す\n出力例: \nrnkRslt:list = [optRslt01, optRslt02,...]\n ※optRslt=[対応適合度関数rslt:Rslt, param:Tuple]
+    引数\n[ OptMthd*, FuncObj*,(optArg1:Tuple,...,optArgm:Tuple),\n  (detArg1(date:Tuple),...etc) ]\n入力例:
+    --
     prmRslt:PrmRslt = [] Stに対する各入力パラメータと結果のリストを格納
     prmRsltOpt:PrmRslt = [] Rsltの各入力パラメータと結果組を採用順に並び替えたもの
     CreateTester(St, prmRslt):list 複数期間における検証結果をリストにして返す
     rsltOpt.append([ tmp3,[objfunc.Run(tmp3)] ])\n ※最適化対象オブジェクト実行メソッドの目的結果と対象最適化変数組を順次格納
 }
-note left of Optmizer : パラメータの最適化を行う\n戻値\n各Rslt[&Param]を適合度関数順に整理した結果を返す\n出力例: \nrnkRslt:list = [optRslt01, optRslt02,...]\n ※optRslt=[対応適合度関数rslt:Rslt, param:Tuple]
-note right of Optmizer : 引数\n[ OptMthd*, FuncObj*,(optArg1:Tuple,...,optArgm:Tuple),\n  (detArg1(date:Tuple),...etc) ]\n入力例:
 
 class TSA{
+    時系列分析にてStragegyに設定されたパラメでパフォーマンス測定を1回行う\n　※指定期間に対応する各一組のStragegyパラメータ群が対象\n　※通常の検証の場合一組の指定期間を入力するが、\n　WFO後は複数組の指定期間&パラメ\n出力例:\nrslt:Rslt
+    入力例:\n単一paramの場合 ※最適化で何度も回すとき等\n[( (arg11,arg12,...arg1n),((20020101,20051231),...etc) )]\n複数paramの場合 ※WFO完了後OOS結合後テスト等\n[( (optArg11,optArg12,...optArg1n),((20020101,20021231),...etc) ),\n ( (optArg21,optArg22,...optArg2n),((20030101,20031231),...etc) ),...etc]
+    --
+    Run(Strategy) Strategyの内容を実行
 }
-note left of TSA : 時系列分析にてStragegyのパフォーマンス測定を1回行う\n※指定期間に対応する各一組のStragegyパラメータ群が対象\n※通常の検証の場合一組の指定期間を入力するが、\n  WFO後は複数組の指定期間&パラメ\n出力例:\nrslt:Rslt
-note right of TSA : 入力例:\n単一paramの場合 ※最適化で何度も回すとき等\n[( (arg11,arg12,...arg1n),((20020101,20051231),...etc) )]\n複数paramの場合 ※WFO完了後OOS結合後テスト等\n[( (optArg11,optArg12,...optArg1n),((20020101,20021231),...etc) ),\n ( (optArg21,optArg22,...optArg2n),((20030101,20031231),...etc) ),...etc]
 
-Optmizer "1" *-- "1..n" TSA : Contains <
-WFA "1" *-- "1..n" Optmizer : Contains <
-WFO "1" *-- "1..n" WFA : Contains <
-St "1" *-- "1" WFO : Contains <
 
-/'
+
+StrategyIF ...> OptimizerIF : Uses by\nadapter >
+StrategyIF ...> AnlyzerIF : Uses by\nadapter >
+StrategyIF *--> StrategyIF
+OptimizerIF *->AnlyzerIF
+
+StrategyIF "1" <|... "1" Strategy : Extend <
+OptimizerIF <|... WFO : Imprement <
+AnlyzerIF <|...  WFA : Imprement <
+OptimizerIF <|... Optmizer : Imprement <
+AnlyzerIF <|... TSA : Imprement <
+
+WFO "1" *-> "1..m*n" WFA : Contains <
+WFA "1" ..> "1" Optmizer : Request >
+Optmizer "1" *-> "1..m*n" TSA : Contains <
+
+
+newpage
+
 interface Rnk(Object){
     最適化結果と変数に関連する情報格納用変数
     並替メソッド(適合度関数ポインタ)
 }
 note left of Rank : 並べ替え機能と記録用Obj
 note right of Rank : 
-'/
 
 
 /'
-class systemTesterClass(object継承){
-    systemMarketList
-    equityDataList
-    SysName = "Noname"
-    def __init__(self):
-        self.tradeName : string
-        self.numShares : int
-        self.cumuProfit : int
 
-        self.marketPosition : list[グローバル変数mpは一時保持用]
-        self.listOfTrades : list
-        self.trueRanges : list
-        self.ranges : list
-
-        self.entryPrice : list
-        self.entryQuant : list
-        self.exitQuant : list
-        self.exitPrice : list
-        self.currentPrice = 0
-        self.totComms = 0
-        self.barsSinceEntry = 0
-        self.numRuns = 0
-
-        self.myBPV = 0
-        self.myComName
-        self.myMinMove
-        self.allowPyr = 0
-        self.curShares = 0
-
-        self.commission = 100 # deducted on a round turn basis
-        self.numBarsToGoBack = 1000 # number of bars from the end of data
-        self.rampUp = 100 # need this minimum of bars to calculate indicators 最低必要バー数
-
-}
-class marketDataClass(object継承){
-    {field}{static} DCL : list = getDate() : dataClassList
-        self.symbol : string
-        self.minMove : int
-        self.bigPtVal : int
-        self.seed : int
-        self.date : list
-        self.open : list
-        self.high : list
-        self.low : list
-        self.close : list
-        self.volume : list
-        self.opInt : list
-        self.dataPoints : int
-    setDataAttributes(self,symbol,bigPtVal,minMove):
-    readData(self,date,open,high,low,close,volume,opInt):
-
-}
-class portfolioClass(object継承){
-        self.portfolioName : string
-        self.systemMarkets : list
-        self.portEquityDate : list
-        self.portEquityVal : list
-        self.portclsTrdEquity : list
-        self.portDailyEquityVal : list
-        self.portPeakEquity = 0
-        self.portMinEquity = 0
-        self.portMaxDD = 0
-        tempEqu = 0
-        cumEqu = 0
-        maxEqu = -999999999
-        minEqu = 999999999
-        maxDD = 0
-    
-    def setPortfolioInfo(self,name,systemMarket):
-}
-portfolioClass "1" ... "1" systemTesterClass : 銘柄リストごとの戦略のテスト結果統合・集計 <
-systemTesterClass "1" o- "n" marketDataClass : 指定マーケットの属性やデータを属する <
-systemTesterClass <|-- object
-marketDataClass <|-- object
-portfolioClass <|-- object
 '/
 @enduml
