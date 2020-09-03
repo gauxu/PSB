@@ -3,29 +3,95 @@ https://plantuml.com/ja/class-diagram
 http://www.itsenka.com/contents/development/uml/class.html
 '/
 @startuml
-interface StrategyIF{
-    ==
-    st : Strategy
-    --
-    TesterRun()
-    Opt = createOpt(GA,WFA) : OptBase ※ポリモーフィズム化
-    run(st, Opt)
+class Portforio{
 }
-class Strategy{
-    ◆extend : StrategyIF
-    NOTE:\n外部変数は共有オブジェクトに\n※グローバルやシングルトンに依存させない
+Interface StrategyIF{
+    総変更したり入れ替えたりする手段なので実装部の変更が多いので＝継承
+    interfaceクラスはすべてが純粋仮想関数で構成
+    Python関数は全て仮想関数\n→コンパイル時エラーにしたい→オーバーライドしないと例外
     ==
-    st : Strategy
-    Opt = createOpt(GA,WFA) : OptBase ※ポリモーフィズム化
-    run(st, Opt)
+    ..
     --
-    外部変数は共有オブジェクトに\n※グローバルやシングルトンに依存させない
+    {abstract}RuleMethod() TODO:売買Methodオーバライドしてないと実行時Assert
+    Opt = createOpt(GA,WFA) : OptBase ※ポリモーフィズム化
+    runTester(WFO||WFA||TSO||TSA)
+}
+
+
+class Strategy{
+    戦略ごとに変わる各種設定変数と売買ルール・手順されたメソッドで構成
+    外部変数は今後複数欲しくなること考慮し共有オブジェクトへ。グローバル・シングルトン駄目
+    ※ロジックや機能追加によってはOptimizeとAnlyzerが間に増える
+    ==
+    ..
+    --
+    資金管理関連変数郡
+    strategyParam : list
+    trdmarket:list
+    anlymarket:list
+    __
+    -RuleMethod() ※売買ルール詳細必ずオーバライドする！
 }
 
 interface OptimizerIF{
-    ◆extend : Aggregate
+    最適化アルゴリズムの選択と評価関数の一般化
+    ストレステスト等の機能追加部分は機能継承　最適化手法等の手段部分は実装
     ==
-    ret: rnkRslt:list = [optRslt01, optRslt02,...]
+    __
+    public {abstract} Create 使用最適化アルゴリズム&パラメを設定()　ex.ストレステスト、処理回数
+    分析アルゴリズム設定値(適合関数やStrategyポインタ等)を決定()
+    分析アルゴリズムの初期の最適化対象変数組設定() ※制約条件逸脱する場合は適合度=Worstで除外対象
+    SetRunAnlyzer(設定値、最適化対象変数組のセット)：結果
+    結果を反映・考慮し、次回の分析変数組を最適化対象変数から決定()
+}
+
+interface AnlyzerIF{
+    ※最適化以外でも単体で通常運用する　※適合上位の変数郡を分散運用等
+    ==
+    __
+    TODO:method
+}
+
+class WFO{
+    シングルWFOはある設定のWFAの結果と同義
+    クラスターWFOはWFAの運用に際して、良い設定値を探すため各設定によるWFAを行い、
+    設定した適合度関数が良い結果のクラスターを探すこと
+    ==
+    arg: OptimizeMethod,Fitness,FitRslt,evalute,attrval[]]
+    入力例:["round-robin",Fitness,FitRslt,evalute,attrval[]]
+    __
+    anlyPeriod : tuple ※検証開始-終了期間を年月日指定
+    conpatible : interface[Strategyパターン]\n　適合度関数[純利、最大DD、リターン等]\n　入力量に対する集計方法が違うので切替
+    StrTstCnt,StrTstRate:tuple:ストレステスト回数、割合
+    --
+    Create(Opt*,OptPrm[], CompatiObj=Prof||MaxDD||ret...etc,)
+    detParam():Param 初期検証パラメータとRslt考慮した次の検証パラメータ決定\n (GA等考慮する場合最適化の順番が流動的に変化するため)
+    funcObj.Run(detParam)
+}
+class WFA{
+    WalkFowordAnlyzeを1回実行
+    ※WFA1回＝WFCnt回数の分析(インサンプルTSO?アウトオブサンプルTSA結果&集計)
+    単位入力量毎に、各インサンプル期間Trd数サンプル最低30以上　入力量4なら計120サンプル
+    ==
+    ret:rslt:Rslt
+    ex.
+    ..
+    引数 最適化変数群optArg11~mnと決定変数群detArg1~kのTuple
+    入力例:[ (10,0.2,(20100101,20191231),...etc) ]
+    __
+    WFCnt:int = 10 ※入力量[InTSO_OutTSA回数/WFA1回]
+    OOSRate:flort = 0.2
+    InRslt:[Param*] = [[begin1,end1,param,rslt],...] 各インサンプル検証毎のパラメーターと結果を格納する
+    OutRslt:[Param*] 各アウトオブサンプル検証毎のパラメーターと結果を格納する
+    BgnEndPrd:[tuple] = [(inStart,inEnd,outStart,outEnd),...] ※前2つインサンプル 後2つアウトオブサンプル
+    --
+    RunInTSO_OutTSA(detParam):inRslt OutTSAによってはTSA拡張で限界あるなら、multiTSA作ってもOK
+}
+class TSO{
+    TSOパラメータの最適化を行う
+    ==
+    rsltOpt.append([ tmp3,[objfunc.Run(tmp3)] ])\n ※最適化対象オブジェクト実行メソッドの目的結果と対象最適化変数組を順次格納
+    ret:適合度関数順に整理した結果を返す rnkRslt:list = [optRslt01, optRslt02,...]
     　※optRslt=(対応適合度関数rslt:Rslt,param:(optWFCnt:int,optOOSRate:Flort,...etc))
     exm:
     ..
@@ -33,110 +99,44 @@ interface OptimizerIF{
     ,(optArg1:Tuple,...,optArgm:Tuple),(detArg1(date:Tuple),...etc) ]
     exm: GA,optPrm, WFA,optArg[tuple],
     __
-    -isStressTest :bool = true
-    -stressTestCount:int = 3
-    -stressTestRate:flort = 0.1
-    --
-    CreateOptmizer(Opt*,OptPrm[], CompatiObj=Prof||MaxDD||ret...etc,)
-}
-
-interface AnlyzerIF{
-    ◆extend : Iterator
-    ==
-    ret:
-    exm:
-    ..
-    arg:
-    exm:
-    __
-    TODO:variable
-    --
-    TODO:method
-}
-
-
-class WFO{
-    ◆extend : OptimizerIF
-    ==
-    WFAのパラメータの最適化を行う
-    ※WFOクラスター分析とは\nWFOの運用に際して良い設定値を探すために各設定によるWFAを行い、
-    　設定した適合度関数が良い結果のクラスターを探すこと\n
-    ※1回WFAにおけるWFOをシングルWFO、複数回のWFAにおけるWFOをクラスタWFO
-    __
-    strategyPrm : list 引数リストor引数生成関数と引数リスト
-    trdmarket:list ->St
-    anlymarket:list ->St
-    anlyPeriod : tuple ※検証開始-終了期間を年月日指定
-    conpatible : interface[Strategyパターン]\n　適合度関数[純利、最大DD、リターン等]\n　入力量に対する集計方法が違うので切替
-    StrTstCnt,StrTstRate:tuple:ストレステスト回数、割合
-    --
-    detParam():Param 初期検証パラメータとRslt考慮した次の検証パラメータ決定\n (GA等考慮する場合最適化の順番が流動的に変化するため)
-    funcObj.Run(detParam)
-}
-
-
-class WFA{
-    WFO設定パラメータ群における1組のWFAを1回実行\n ※WFA1回＝WFCnt回数分Stragegyパラメータの最適化を行う\n出力例:rslt:Rslt
-    引数 最適化変数群optArg11~mnと決定変数群detArg1~kのTuple\n入力例:[ (10,0.2),( (20100101,20191231),...etc ) ]\nNOTE:\n単位入力量における、各インサンプル期間の\nTrd数サンプルは最低30以上欲しい\n入力量4なら合計120Trdサンプルに？
-    --
-    WFCnt:int = 10 ※入力量:IOS+OOSのサンプリング回数
-    OOSRate:flort = 0.2
-    InRslt:Param* = [[begin1,end1,param,rslt],...]各インサンプル検証毎のパラメーターと結果を格納する
-    OutRslt:Param* 各アウトオブサンプル検証毎のパラメーターと結果を格納する
-    BgnPrd:tuple[int,int] = 20010101,20011231 ※インサンプル期間開始-終了
-    EndPrd:tuple[int,int] = 20020101,20021231 ※アウトオブサンプル期間開始-終了
-    RunInTst(detParam):inRslt 複数期間における検証結果をリストにして返す
-    RunInOpt():inRslt 複数期間における検証結果をリストにして返す
-    RunOutTst():outRslt 複数期間における検証結果をリストにして返す
-    PutRslt(OutRslt)
-}
-
-
-class Optmizer{
-    ◆extend : OptimizerIF
-    パラメータの最適化を行う\n戻値\n各Rslt[&Param]を適合度関数順に整理した結果を返す\n出力例: \nrnkRslt:list = [optRslt01, optRslt02,...]\n ※optRslt=[対応適合度関数rslt:Rslt, param:Tuple]
-    引数\n[ OptMthd*, FuncObj*,(optArg1:Tuple,...,optArgm:Tuple),\n  (detArg1(date:Tuple),...etc) ]\n入力例:
-    --
     prmRslt:PrmRslt = [] Stに対する各入力パラメータと結果のリストを格納
     prmRsltOpt:PrmRslt = [] Rsltの各入力パラメータと結果組を採用順に並び替えたもの
-    CreateTester(St, prmRslt):list 複数期間における検証結果をリストにして返す
-    rsltOpt.append([ tmp3,[objfunc.Run(tmp3)] ])\n ※最適化対象オブジェクト実行メソッドの目的結果と対象最適化変数組を順次格納
+    --
 }
 
 class TSA{
-    時系列分析にてStragegyに設定されたパラメでパフォーマンス測定を1回行う\n　※指定期間に対応する各一組のStragegyパラメータ群が対象\n　※通常の検証の場合一組の指定期間を入力するが、\n　WFO後は複数組の指定期間&パラメ\n出力例:\nrslt:Rslt
+    時系列分析にてStragegyや指定期間におけるパフォーマンス測定を1回行う
+    ※指定期間に対応する各一組のStragegyパラメータ群が主な対象
+    ※通常の検証の場合一組の指定期間を入力するが、WFO後は複数組の指定期間&パラメ
+    ==
+    出力例:\nrslt:Rslt
+    ..
     入力例:\n単一paramの場合 ※最適化で何度も回すとき等\n[( (arg11,arg12,...arg1n),((20020101,20051231),...etc) )]\n複数paramの場合 ※WFO完了後OOS結合後テスト等\n[( (optArg11,optArg12,...optArg1n),((20020101,20021231),...etc) ),\n ( (optArg21,optArg22,...optArg2n),((20030101,20031231),...etc) ),...etc]
+    __
+    TesterManage:obj
     --
+    CreateTester(St, prmRslt):list 複数期間における検証結果をリストにして返す
     Run(Strategy) Strategyの内容を実行
 }
 
-
-
-StrategyIF ...> OptimizerIF : Uses by\nadapter >
-StrategyIF ...> AnlyzerIF : Uses by\nadapter >
-StrategyIF *--> StrategyIF
+Portforio o--> StrategyIF
+Cliant ...> StrategyIF : Uses or dev \nor Monitoring >
+Cliant ...> OptimizerIF : Uses for\nStOptimize >
+Cliant ...> AnlyzerIF : Uses for\nStAnlyze >
 OptimizerIF *->AnlyzerIF
 
-StrategyIF "1" <|... "1" Strategy : Extend <
-OptimizerIF <|... WFO : Imprement <
-AnlyzerIF <|...  WFA : Imprement <
-OptimizerIF <|... Optmizer : Imprement <
-AnlyzerIF <|... TSA : Imprement <
+StrategyIF "1" <|... "1" Strategy : realization >
+OptimizerIF <|... WFO : realization >
+AnlyzerIF <|...  WFA : realization >
+OptimizerIF <|... TSO : realization >
+AnlyzerIF <|... TSA : realization >
 
-WFO "1" *-> "1..m*n" WFA : Contains <
-WFA "1" ..> "1" Optmizer : Request >
-Optmizer "1" *-> "1..m*n" TSA : Contains <
-
+WFO "1" o-> "1..m*n" WFA : Creates >
+WFA "1" --> "1" TSO : InSample\nOptmize >
+WFA "1" --> "1" TSA : OutofSample\nAnalyze >
+TSO "1" o-> "1..m*n" TSA : Creates >
 
 newpage
-
-interface Rnk(Object){
-    最適化結果と変数に関連する情報格納用変数
-    並替メソッド(適合度関数ポインタ)
-}
-note left of Rank : 並べ替え機能と記録用Obj
-note right of Rank : 
-
 
 /'
 
