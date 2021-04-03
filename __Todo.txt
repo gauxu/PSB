@@ -1,80 +1,80 @@
 #Todo# Ended elements moved at  __UpdateLog.txt and insert upper at docment.
 
-[190822]#Todo_�����m�F/Rep PSB_LM.xmind�@?�@plantUML�łł��Ȃ����H
-[190822]#Todo_1��1��K���R�~�b�g&Git��UnOrg����
-[200825]#Todo_�݌v���厖(�i���8��)�@UML�撣��
+[190822]#Todo_毎日確認/Rep PSB_LM.xmind　?　plantUMLでできないか？
+[190822]#Todo_1日1回必ずコミット&GitやUnOrg整理
+[200825]#Todo_設計が大事(段取り8割)　UML頑張る
 
-[200819]#Dev_�œK���A���S���Y���������C���^�[�t�F�C�X������Deap�Ɋւ��钲��
-[190822]#Dev_�o�͂⒲�����ʂ����₷��������jupytor�ŋL�^�Ƃ��Ă܂Ƃ߂�
+[200819]#Dev_最適化アルゴリズム実装←インターフェイス実装←Deapに関する調査
+[190822]#Dev_出力や調査結果を見やすく可視化←jupytorで記録としてまとめる
 
-[200813]#seach_�}���`�^�C���t���[�����͂̂��߂ɃX���b�h�@�\�𒲂ׂĂ݂�
-[200813]#seach_�v���O���X�o�[�Ȃǂœ������s��������������GUI�����̕׋�
+[200813]#seach_マルチタイムフレーム分析のためにスレッド機能を調べてみる
+[200813]#seach_プログレスバーなどで同時並行処理がしたい→GUI実装の勉強
 
-[200906]#info_���ԊǗ��p���R���e���c�ɂ��Ĕ��M�W�v�A�v�����Ȃ���Ύ���
-[200903]#info_Qiita��plantuml�g�p��̃R�c�Ƃ��܂Ƃ߂Ă݂�
-[200903]#info_Qiita�Ŏ����pGit�̎g�������܂Ƃ߂Ă݂�
-[200903]#info_�X�L���V�[�g�����@�m���T�O�̗L�����x����
-[200903]#info_���E�֎q�L�[�{�[�h����̊J�����ɂ��Ẵ���
-[200903]#info_Github�ɂĎ�����Todo�̌��J
+[200906]#info_時間管理術をコンテンツにして発信集計アプリがなければ自作
+[200903]#info_Qiitaでplantuml使用上のコツとかまとめてみる
+[200903]#info_Qiitaで自分用Gitの使い方をまとめてみる
+[200903]#info_スキルシートを作る　知見概念の有無レベル等
+[200903]#info_机・椅子キーボード周りの開発環境についてのメモ
+[200903]#info_Githubにて自分のTodoの公開
 
-[190828]#Idea_�����g�����h�헪���؁@�ł���Ε����p�����[�^�[�@PSB��OneMax���Ή�
-[190823]#Idea_���؋L�^�̐��K����t�H�[�}�b�g���@��������Ƃ��A�[�J�C�u�����Č�����
-[190823]#Idea_����y�A����������
-[200813]#Idea_����by������V�X�e�����\�z(��{���[���h���p)
-[190902]#Idea_������X�L��
-�E�V���l��V���l�̏�����O���ӂŘA���X�L��
-�O�̐V���l���l��������x�����ɍs�����Ƃ͂悭���邪�A
-���̎�O�ŏ����ȃ����W�����Ƃ��͍����m���ōX�V���ɂ����Ă��甽�]����B
-�E�惌���W���u���C�N�������̏������g���[�h
-1��ڂ̉����ڂ�OK�@2��ڂ͑ʖځ�2�񏇍s�Ŏ�d����and�Z�b�g�A�b�v����
+[190828]#Idea_長期トレンド戦略検証　できれば複数パラメーター　PSBをOneMax問題対応
+[190823]#Idea_検証記録の正規化やフォーマット化　やったことをアーカイブ化して見直す
+[190823]#Idea_鞘取りペア調査環境整備
+[200813]#Idea_押目by順張りシステムを構築(基本ユーロドル用)
+[190902]#Idea_順張りスキャ
+・新高値や新安値の少し手前周辺で連続スキャ
+前の新高値安値をもう一度試しに行くことはよくあるが、
+その手前で小さなレンジを作るときは高い確率で更新しにいってから反転する。
+・先レンジをブレイクした時の初押しトレード
+1回目の押し目はOK　2回目は駄目＝2回順行で手仕舞いandセットアップ完了
 
-[190902]�J�E���^�[�g���[�h
-�����g�����h���s���ȂƂ��̕��U�V�X�e��
-������X�L���Ƃ����΂̌��ʂɂȂ�͂�
-[190828]�����g�����h�헪���؁@���v�ɂȂ������
-�Ώۖ������v�ڕW70%%
-PSB��OneMax���ɑΉ��ł���悤�Ɋg��
-[190823]�e���֐��̋���������Ώۂɏ���
-SetUp:H4orH1���Ԏ��Ńo�[�̍ŏ���100�Ƃ��Ă��݂��̊����̕ω��ɑ΂���
-���i�̘����`���[�g�̃����W������I�Ɍ�������^�C�~���O�����邩�m�F
-�����̃s�{�b�g���N���X����x�Ƀ��Z�b�g�A
-�����`���[�g�̃N���X�܂ł̕��Ϙ������J�E���g���Ă���
-Entry:���Ϙ����ɓ��B�����獂���ق���Sell�����ق���Buy
-Exit:�����`���[�g�̕��ό������Ԃ̔{�𒴂�����@or�@�����`���[�g���N���X����
-Mrkt:���X�̒l������%�̃x�N�g���ɑ��֐��̂���y�A(������Z�����ԂōL�������₪����)
+[190902]カウンタートレード
+長期トレンドが不調なときの分散システム
+順張りスキャとも反対の結果になるはず
+[190828]長期トレンド戦略検証　利益になる銘柄が
+対象銘柄利益目標70%%
+PSBをOneMax問題に対応できるように拡張
+[190823]各相関性の強い銘柄を対象に鞘取り
+SetUp:H4orH1時間軸でバーの最初を100としてお互いの株価の変化に対する
+価格の乖離チャートのレンジが定期的に交差するタイミングがあるか確認
+乖離のピボットをクロスする度にリセット、
+乖離チャートのクロスまでの平均乖離をカウントしている
+Entry:平均乖離に到達したら高いほうをSell安いほうをBuy
+Exit:乖離チャートの平均交差時間の倍を超えたら　or　乖離チャートがクロスした
+Mrkt:日々の値動きの%のベクトルに相関性のあるペア(それより短い時間で広がった鞘が収束)
 Todo:
-01_�����̑O�Ɋe�����̑��֐��𒲍����鏀��
-02_�l�X�Ȗ������瑍������ŒT��������
-03_��������Z�����ԑ��̏����W
+01_実装の前に各銘柄の相関性を調査する準備
+02_様々な銘柄から総当たりで探す環境整備
+03_見つけたら短い時間足の情報収集
 
 [190822]
-���l(2���ȏ���l�����֍X�V��)����3ATR(10)&10%�ȏ�̉����Ŕ����Z�b�g�A�b�v
-Entry:�����S�����l��������t�����琬�s�����@�����łȂ���ΑS�����l�w�l&�s������
-Exit:2ATR���v���o����w�l���ρ@�G���g���[�������̓��ɗ��v�łȂ���Έ�������
-PosSize:������10%
-Mrkt:75MA����ɂ��鐬����������
+高値(2日以上安値方向へ更新無)から3ATR(10)&10%以上の下落で買いセットアップ
+Entry:翌日全日安値より安く寄付いたら成行買い　そうでなければ全日安値指値&不成引買
+Exit:2ATR利益が出たら指値決済　エントリーした次の日に利益でなければ引成決済
+PosSize:資金の10%
+Mrkt:75MAより上にある成長株式銘柄
 
-[190822]�����̕E�������`���[�g�ŋt����f�C�g��
+[190822]日足の髭が多いチャートで逆張りデイトレ
 
-[190822]amzn�̂悤���Y��ȃ��f���ɑ΂��镽�ω�A�g���[�h
-�傫���c��񂾎��͖c��񂾊��Ԃƒl�����ɕ��U�����邱�Ƃŏ_����������t����G���g���[
-�Ώۖ�����Amzn�̂悤�ȏ����ɐ������Ă�������̃}�[�P�b�g
+[190822]amznのような綺麗なモデルに対する平均回帰トレード
+大きく膨らんだ時は膨らんだ期間と値動きに分散させることで柔軟性を持った逆張りエントリー
+対象銘柄はAmznのような順調に成長している銘柄のマーケット
 
 #UnOrgMemo#
-### �I�u�W�F�N�g�w���̖ړI�͕p�ɂɕύX�����ł��낤�ӏ����N���X�ɒ��o����X�^�C�� ###
-#�K�v������Obj
-#Tester�Ǘ�CL
-# �Œጟ�؎��Ԏ�
-# ���Y�Ȑ�
+### オブジェクト指向の目的は頻繁に変更されるであろう箇所をクラスに抽出するスタイル ###
+#必要そうなObj
+#Tester管理CL
+# 最低検証時間軸
+# 資産曲線
 
-### �p���̖{���̓C���^�[�t�F�C�X ###
-# �p���Ƃ́A�e�N���X����@�\���󂯌p�����߂̂��̂ł͂Ȃ� �e�N���X�̊T�O���̂��̂ł���
-# �p���̖{���́A�����\�ȃp�[�c���쐬���邽�߂ɋ��ʓ_���u�K�i�v�Ƃ��Ă܂Ƃߏグ����C���^�[�t�F�C�X
-#�e�N���X�ɂ͉������Ԃ͎������Ȃ�=�C���^�[�t�F�C�X
-# �����������ꍇ�͈��ՂɃR�[�f�B���O�̎�Ԃ����炵�Ă邾�������ׂĂɋ��ʂ����ΕύX�ł��Ȃ������ɂȂ�
-#Tester�Ǘ��I�u�W�F�N�g���e�팟��Obj�ɎQ�Ɠn�������邱�Ƃŋ��ʃf�[�^�����L������
+### 継承の本質はインターフェイス ###
+# 継承とは、親クラスから機能を受け継ぐためのものではない 各クラスの概念そのものである
+# 継承の本質は、交換可能なパーツを作成するために共通点を「規格」としてまとめ上げられるインターフェイス
+#親クラスには何も実態は持たせない=インターフェイス
+# 実装が伴う場合は安易にコーディングの手間を減らしてるだけ→すべてに共通する絶対変更できない部分になる
+#Tester管理オブジェクトを各種検証Objに参照渡しをすることで共通データを共有させる
 #
-### �I�u�W�F�N�g�R���|�W�V���������ׂ� ###
+### オブジェクトコンポジションをやるべき ###
 #
 #Engine engine = new JetEngine();
 #Handle handle = new QuickHandle();
@@ -83,66 +83,66 @@ Mrkt:75MA����ɂ��鐬����������
 
 #Car car = new Car(engine, handle, brake, wheel);
 #
-### �I�u�W�F�N�g�R���|�W�V�����@�����܂� ###
-#���C���N���X���t�@�N�g����N���G�C�g�ɂĂ̂�New���g�p����
-#�e�X�^�[�N���X(���C��)�̒��ł̂݃I�u�W�F�N�g�錾(New)���s��
-#���ؑΏۃ}�[�P�b�gObj�����X�g�ɂ���
-#���ؑΏۃ}�[�P�b�gObj�̒��ɔ����}�[�P�b�g���X�g�ƎQ�ƃ}�[�P�b�g���X�g�����
+### オブジェクトコンポジション　ここまで ###
+#メインクラスかファクトリやクリエイトにてのみNewを使用する
+#テスタークラス(メイン)の中でのみオブジェクト宣言(New)を行う
+#検証対象マーケットObjをリストにする
+#検証対象マーケットObjの中に売買マーケットリストと参照マーケットリストを作る
 
-#�Ώۃ}�[�P�b�g�̍Œጟ�؎��Ԏ��ɉ����ăJ�E���g��i�߂Ă���
-#�e�}�[�P�b�g�̎��ԑ�������ȏゾ�Ƃ��Ă��Ǘ�Obj�ɐݒ肳�ꂽ�Œጟ�؎��Ԏ�����ɓ�����
+#対象マーケットの最低検証時間軸に応じてカウントを進めていく
+#各マーケットの時間足がそれ以上だとしても管理Objに設定された最低検証時間軸を基準に動かす
 
-#�Ǘ�Obj�Ɋ܂߂�������
-# python�ł͑S�ĎQ�Ɠn��(�|�C���^)�Ȃ̂ňӐ}���Ȃ��ύX������Ă��܂����X�N������B
-# mutable��iterable�ł�����̂��Q�Ɠn���̈Ӌ`�ł���
-# imutable��iterable�ł�����̂������ϐ��ɂ���
-#�ȏ�̂��Ƃ���ύX�����Ƃ܂������̂͊�{�I��imutable�Ȍ^�Œ�`���Ă����ׂ�
-#�{���ɎQ�Ɠn���ɂ������ꍇ��mutable�Ȍ^�Œ�`����ׂ��B
-#�����A�o�����̑a�����v�f�����炷���Ƃ��l������Ȃ�imutable���ɗ͍̗p����
+#管理Objに含めたいもの
+# pythonでは全て参照渡し(ポインタ)なので意図しない変更がされてしまうリスクがある。
+# mutableでiterableであるものを参照渡しの意義でつかう
+# imutableでiterableであるものを自動変数にする
+#以上のことから変更されるとまずいものは基本的にimutableな型で定義しておくべき
+#本当に参照渡しにしたい場合はmutableな型で定義するべし。
+#ただ、双方向の疎結合要素を減らすことを考慮するならimutableを極力採用する
 
 #Done#
 [190902]@gauxu
-�ESystemTester.py���n��
-MM�̌��؎�i�������e��œK�����ꂽ���؎葱�������邽�߂̕��@��T��
-�|�C���g��}�����ϐ���֐��̃�����MM�ɋL�q
-�E���؎�i�̐����Ɗm�F�̂���MM�̌��؍��ڂ�ǉ��E����
-�헪���U���̂��߂̍l���̐���
-�E#AnalyzeIdea#��3�쐬
+・SystemTester.pyを熟読
+MMの検証手段整理しつつ各種最適化された検証手続きをするための方法を探る
+ポイントを抑えた変数や関数のメモをMMに記述
+・検証手段の整理と確認のためMMの検証項目を追加・整理
+戦略分散化のための考えの整理
+・#AnalyzeIdea#を3つ作成
 
 [190828]@gauxu
-�EAnaconda�폜&venv�̓���
-GA��OneMax������������Anaconda�̃p�b�P�[�W�����ĂȂ�����
-�����env\Scripts\activate.bat��env\Scripts\deactivate.bat�𗘗p
-Anaconda�g�p���~�߁Avenv��pip�݂̂ŊǗ�
-GA�̃p�b�P�[�W�ł���deap�𖳎��ɓ�������悤�ɂȂ����B
-�T���v���v���O����GA.py�̎��s�ɂĊm�F�B
-��VSC�̎��s���ł͉��z���̑I���͂ł��邪�A
-�^�[�~�i���Œ���venv�̕ύX�͖����Ȃ��Ƃ����������B
-�E__pycache__�̍폜
-�EjupyterNotebook�̃}�[�N�A�b�v�̈�ɉ��s�R�[�h��ǉ�
-�}�[�N�A�b�v�̈�ł�html�̉��s�R�[�h�ŏ�������
+・Anaconda削除&venvの導入
+GAでOneMax問題を解く環境がAnacondaのパッケージ入ってないから
+今後はenv\Scripts\activate.batとenv\Scripts\deactivate.batを利用
+Anaconda使用を止め、venvとpipのみで管理
+GAのパッケージであるdeapを無事に動かせるようになった。
+サンプルプログラムGA.pyの実行にて確認。
+※VSCの実行環境では仮想環境の選択はできるが、
+ターミナルで直接venvの変更は無理なことが分かった。
+・__pycache__の削除
+・jupyterNotebookのマークアップ領域に改行コードを追加
+マークアップ領域ではhtmlの改行コードで書くこと
 
 [190824]@gauxu
-�č������Ԋ���r�̗ǂ��T���v���R�[�h���������̂�
-������Q�l��ViewRsltMod����Jupyter�v���W�F�N�g�쐬
+米国自動車株比較の良いサンプルコードがあったので
+それを参考にViewRsltMod内にJupyterプロジェクト作成
 
 [190823]@gauxu
-����̃��W�b�N�ƒ�����Ƃ̒i���̊T�v���ł�Todo�ɓ���Ă݂�
+鞘取りのロジックと調査作業の段取りの概要を固めTodoに入れてみた
 
 [190822]@gauxu
-MM���v���W�F�N�g�Ɠ������O�Ń��[�h�}�b�v�uPSB_LM�v�쐬
-__Todo��e���ڂ�ݒ肵���h�L�������g�t�@�C���̐ݒ�
+MMをプロジェクトと同じ名前でロードマップ「PSB_LM」作成
+__Todoや各項目を設定したドキュメントファイルの設定
 
 [20190821]@gauxu
-PSB�����[�g���|�W�g����__ReservedWords.txt�ǉ�
-__memo�Ƀ��[���菇�ɕύX�@��̓I�ȍX�V�菇�L�q
-�����[�g���|�W�g���̏o�͌��ʃt�@�C�������S�폜
+PSBリモートリポジトリに__ReservedWords.txt追加
+__memoにルール手順に変更　具体的な更新手順記述
+リモートリポジトリの出力結果ファイルを完全削除
 
 [20190810]@gauxu
-PSB�����[�g���|�W�g����__issue.txt�ǉ�
+PSBリモートリポジトリに__issue.txt追加
 
 [20190809]@gauxu
-Github��Orgnize�쐬���AGauxu�A�J�E���g��PSB�v���W�F�N�g���R�~�b�g�����B
+GithubにOrgnize作成し、GauxuアカウントでPSBプロジェクトをコミットした。
 
 [20190804]@gauxu
-#�����X�R�[�v��global�Ő錾����Ă�exitPrice��global����`�x���o���A�O���ŃR�����g����Ă����u#exitPrice = list()�v����#���폜�B
+#内部スコープでglobalで宣言されてたexitPriceがglobal未定義警告出現、外部でコメントされていた「#exitPrice = list()」から#を削除。
