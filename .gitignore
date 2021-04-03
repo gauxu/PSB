@@ -1,14 +1,9 @@
-__test.py
+__Unittest.py
 __pycache__
 
 .vscode
-plantuml.py
-_UML_ClassView.png
-_UML_StateView.png
-_UML_UseCase.png
-_UML_SequenceView.png
-_UML_ComponentView.png
-
+_plantuml.py
+UML/UML_*.png
 
 _GA.py
 _OptUnit.py
