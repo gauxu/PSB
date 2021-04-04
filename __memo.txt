@@ -1,5 +1,5 @@
-[999999]★★★常時上で確認したいメモ★★★
-Lib及びimportモジュール_memo
+■PSB_projectMemo
+・Lib及びimportモジュール名
 SystemTester.py     #各サンプルのテストモジュールの元になっている
 getData.py          #株価や基本データを纏めて読み込む→データベースから
 dataLists.py        #myDate,myTime,myOpen,myHigh,myLow,myClose
@@ -25,7 +25,7 @@ _Trades     #各銘柄ごとのトレード記録
 _StrtTrdDD  #トレードを開始してからの任意のすべてに対するMDD調査
 _MonteCarlo #モンテカルロシミュレーション結果
 
-GA関連用語
+・GAライブラリ関連用語
 creator.FitnessMax:適応度クラス
 creator.Individual:個体クラス　適応度クラスを属性として持つ
 toolbox.attr_bool:遺伝子を生成する関数
