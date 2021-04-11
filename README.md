@@ -1,8 +1,10 @@
 ## PSB(Python System Backtester)
+
 ### 1.About feature
 #### 1.1 spec of main feature(主要機能)
 + 戦略portfolioの多様性を確認  
 + WFOで各戦略の継続的最適化  
+
 #### 1.2 spec of sub feature(仕様列挙)
 + 検証可能なTimeFrame:Minimum(M1)-Maximum(Y1)  
 + 各処理が順不同にでも適切に動くようにする。 管理オブジェクト(DB)を渡す。
@@ -12,7 +14,7 @@
 + <strong>Ver0.0.0</strong>  
 全般データはTester管理オブジェクトに集約し各処理に参照渡しをする。  
 各処理が順不同にでも適切に動くようにする。 管理オブジェクト渡しで実現できるか。  
-デメリットは管理オブジェクトへの強烈な依存性の発生  
+デメリットは管理オブジェクトへの強烈な依存性の発生(散り散りになるよりマシ)  
 
 #### 1.4 specifications(仕様詳細)
 仕様列挙では冗長なものや詳細的なもの
