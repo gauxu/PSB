@@ -31,12 +31,12 @@
 + 検証手段の整理と確認のためMMの検証項目を追加・整理  
 戦略分散化のための考えの整理  
 [210411]1_Rp_AnalyzeItem作成 jupytorNotebookとmdは相性良  
-[210411]2_Rp_SystemTesterの解析・理解  
-[210407]2_PSBをOneMax問題対応  
+[210411]2_Rp_SystemTesterの解析・理解 主要オブジェクトのmemo整理  
+[210412]2_ReservedWords.mdに変数・予約語概要記述 PlantUMLで整理検討  
+[210407]3_PSBをOneMax問題対応  
 [200819]3_Deapに関する調査 最適化ライブラリ関連のインターフェイス理解・実装  
-[210411]3_Rp_PSBのロードマップ "PSB_LM" 作成・整理  
+[210411]3_Rp_PSBのロードマップ "PSB_LM" をplantumlで作成・整理  
 [210410]3_PSB_LM.xmind -> plantuml移行  
-[210411]3_ReservedWords.mdに変数・予約語概要記述 PlantUMLで整理検討  
 [210411]3_PSBのフォルダ整理  
 
 ***
