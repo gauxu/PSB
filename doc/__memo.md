@@ -1,6 +1,6 @@
 ## PSB_projectMemo
 #### 出力ファイル
-SystemTester.pyが実行起点
+SystemTester.pyが実行起点  
 _Composite  #全Mrkt毎結果と合算月間リターン推移  
 _Summary    #銘柄ごとの成績と月間推移  
 _Trades     #各銘柄ごとのトレード記録  
@@ -17,9 +17,9 @@ equityDataClass.py  #equityClass
 trade.py            #trade  
 systemMarket.py     #systemMarketClass  
 portfolio.py        #portfolioClass  
-systemAnalytics.py  #calcSystemResults
-MarketDataClass.py
-tradeModule.py
+systemAnalytics.py  #calcSystemResults  
+MarketDataClass.py  
+tradeModule.py  
 
 ##### クラス
 masterDateList
