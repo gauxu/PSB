@@ -11,3 +11,4 @@ _OptWorkForwardAnalysis.py
 _StockDataSample
 _XavgCrossOverOpt.py
 _jupyterTest.py
+*.txt
