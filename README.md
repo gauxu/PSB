@@ -30,7 +30,6 @@ PSB関連のオブジェクトや変数・予約語の詳細はdoc内ファイ�
 #### 1.5 Todo in this project.
 + 検証手段の整理と確認のためMMの検証項目を追加・整理  
 戦略分散化のための考えの整理  
-[210411]1_Rp_AnalyzeItem作成 jupytorNotebookとmdは相性良  
 [210411]2_Rp_SystemTesterの解析・理解 主要オブジェクトのmemo整理  
 [210412]2_ReservedWords.mdに変数・予約語概要記述 PlantUMLで整理検討  
 [210407]3_PSBをOneMax問題対応  
